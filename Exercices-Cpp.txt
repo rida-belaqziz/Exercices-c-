@@ -1,0 +1,112 @@
+1. Exercice sur les Vectors
+------------------------------------
+Exercice 1 : Ajouter et parcourir un vector
+
+Déclarez un std::vector<int>.
+Ajoutez les nombres de 1 à 10 dans le vector.
+Parcourez le vector et affichez chaque élément.
+Exercice 2 : Rechercher un élément
+
+Demandez à l'utilisateur d'entrer un nombre.
+Recherchez ce nombre dans le vector.
+Indiquez si le nombre a été trouvé ou non, ainsi que son index (s'il est trouvé).
+Exercice 3 : Opérations avancées
+
+Écrivez un programme qui :
+Supprime tous les nombres pairs du vector.
+Insère le double des nombres impairs après chaque nombre impair.
+Exercice 4 : Tri et insertion
+
+Écrivez un programme qui :
+Trie un vector de manière ascendante.
+Demande à l'utilisateur d'entrer un nouveau nombre.
+Insère le nombre dans le vector trié à la bonne position (sans utiliser sort()).
+
+
+2. Exercice sur les Stacks
+------------------------------------
+Exercice 1 : Implémentation basique
+
+Déclarez un std::stack<int>.
+Ajoutez les nombres de 1 à 5 dans la stack.
+Affichez et retirez les éléments un par un jusqu'à ce que la stack soit vide.
+Exercice 2 : Vérifier une expression parenthésée
+
+Écrivez une fonction qui vérifie si une chaîne de caractères contenant des parenthèses est correctement équilibrée (ex. (a + b) est valide, mais (a + b)) ne l'est pas).
+Utilisez un std::stack<char> pour résoudre cet exercice.
+Exercice 3 : Réverser une chaîne
+
+Écrivez une fonction qui prend une chaîne de caractères et utilise une stack pour inverser la chaîne.
+Exemple : stack devient kcats.
+Exercice 4 : Évaluation d'expressions postfixées
+
+Écrivez un programme qui évalue une expression postfixée (notation polonaise inversée) en utilisant une stack.
+Exemple : L'entrée "5 1 2 + 4 * + 3 -" renvoie 14.
+3. Exercice sur les Listes
+------------------------------------
+Exercice 1 : Manipulations de base
+
+Déclarez un std::list<int>.
+Ajoutez les nombres 10, 20, 30, 40, et 50.
+Supprimez les éléments multiples de 20.
+Affichez les éléments restants.
+Exercice 2 : Inverser une liste
+
+Écrivez une fonction qui prend une std::list<int> et la renverse (vous pouvez utiliser std::list::reverse() ou l'implémenter manuellement).
+Exercice 3 : Fusionner deux listes
+
+Écrivez un programme qui :
+Déclare deux listes triées de manière ascendante.
+Fusionne les deux listes dans une nouvelle liste triée.
+Exercice 4 : Créer une file d'attente circulaire
+
+Implémentez une file d'attente circulaire en utilisant une std::list.
+Les éléments qui sortent à l'avant sont ajoutés à l'arrière.
+Exemple : {1, 2, 3} devient {2, 3, 1} après un tour.
+4. Projets Mélangés (Combinaison de Stacks, Lists et Vectors)
+------------------------------------
+Projet 1 : Système d'annulation/refaire
+
+Implémentez un système basique de type annulation/refaire (undo/redo) en utilisant deux std::stack.
+Une stack garde l'historique des actions effectuées (undo).
+Une autre stack garde l'historique des actions annulées (redo).
+Projet 2 : Gestion d'une file d'attente prioritaire
+
+Utilisez une std::list ou un std::vector pour implémenter une file d'attente où les éléments sont insérés en fonction de leur priorité.
+Exemple : {10, 20, 30} avec une nouvelle insertion de 25 devient {10, 20, 25, 30}.
+Projet 3 : Simulation d'une pile d'assiettes
+
+Implémentez une structure de données personnalisée (Stack of Plates) où chaque stack peut contenir un nombre fixe d'éléments, et une nouvelle stack est créée lorsqu'une pile atteint sa capacité.
+Exemple : Une pile avec une capacité de 3 éléments, et les éléments [1, 2, 3, 4, 5] donneraient deux piles : {1, 2, 3} et {4, 5}.
+Projet 4 : Jeu de cartes
+
+Simulez un jeu de cartes où :
+Le paquet de cartes est représenté par un std::vector.
+Les cartes jouées sont stockées dans une std::stack.
+Les cartes en main sont gérées par une std::list.
+5. Exercices Algorithmiques
+------------------------------------
+Exercice 1 : Supprimer les doublons
+
+Écrivez une fonction qui supprime les doublons d'un std::vector<int> tout en conservant l'ordre des éléments.
+Exercice 2 : Plus proche élément plus grand
+
+Pour chaque élément d'un tableau, trouvez le plus proche élément plus grand situé à sa droite. Utilisez un std::stack pour optimiser.
+Exemple : [4, 5, 2, 10] donne [5, 10, 10, -1].
+Exercice 3 : Palindrome
+
+Écrivez une fonction qui vérifie si une chaîne est un palindrome en utilisant une stack et une liste.
+Exercice 4 : Histogramme
+
+Trouvez l'aire maximale d'un rectangle dans un histogramme donné. Utilisez un std::stack pour optimiser la recherche.
+Bonus : Défis Avancés
+Défi 1 : Expression infixée à postfixée
+
+Écrivez un convertisseur qui transforme une expression mathématique infixée en une expression postfixée.
+Exemple : (A + B) * C devient AB+C*.
+Défi 2 : Trie par insertion avec list
+
+Implémentez un algorithme de tri par insertion en utilisant une std::list.
+Défi 3 : Parcours en profondeur avec stack
+
+Implémentez un parcours en profondeur (DFS) d'un graphe en utilisant une stack au lieu de la récursion.
