@@ -27,6 +27,24 @@ Exemple : L'entrée "5 1 2 + 4 * + 3 -" renvoie 14.
 
 using namespace std;
 
+
+//fonction pour vérifier une expression parenthésée
+bool parenthese(const string &mot) {
+    stack<char> sch;
+
+    for (char ch : mot) {
+        if (ch == '(') {
+            sch.push(ch);
+        } else if (ch == ')') {
+            if (!sch.empty() && sch.top() == '(') {  
+                sch.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+    return sch.empty();
+}
 //cout<< v2[i] <<" ";
 int main(){
     //ex1
@@ -36,6 +54,12 @@ int main(){
     while(!s1.empty()){s1.pop();}
     //vide ou pas
     cout<<"la pile s1 est : "<< (s1.empty()? "vide": "non vide")<<  endl;
+
+
+    string mot1 = "(a + b)";
+    string mot2 = "(a + b))";
+    cout<<parenthese(mot1)<<endl;
+    cout<<parenthese(mot2)<<endl;
     
     return 0;
 }
