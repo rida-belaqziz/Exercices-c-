@@ -28,6 +28,22 @@ Exemple : L'entrée "5 1 2 + 4 * + 3 -" renvoie 14.
 using namespace std;
 
 
+
+//Réverser une chaîne
+void reverser(string &mot){
+    stack<char> sch;
+    for (char ch : mot) {
+        sch.push(ch);
+    }
+    int i = 0;
+    while (!sch.empty()) {
+        mot[i++] = sch.top();
+        sch.pop();
+    }
+}
+
+
+
 //fonction pour vérifier une expression parenthésée
 bool parenthese(const string &mot) {
     stack<char> sch;
@@ -55,11 +71,16 @@ int main(){
     //vide ou pas
     cout<<"la pile s1 est : "<< (s1.empty()? "vide": "non vide")<<  endl;
 
-
+    //ex2
     string mot1 = "(a + b)";
     string mot2 = "(a + b))";
     cout<<parenthese(mot1)<<endl;
     cout<<parenthese(mot2)<<endl;
+
+    //ex3
+    string mot3 = "stack";
+    reverser(mot3);
+    cout<<"reverser :"<<mot3<<endl;
     
     return 0;
 }
