@@ -29,6 +29,62 @@ using namespace std;
 
 
 
+
+
+//Évaluation d'expressions postfixées
+// Fonction pour vérifier si une chaîne est un opérateur
+bool isOperator(const string& token) {
+    return token == "+" || token == "-" || token == "*" || token == "/";
+}
+
+// Fonction pour évaluer une opération donnée deux opérandes
+int evaluateOperation(int operand1, int operand2, const string& op) {
+    if (op == "+") return operand1 + operand2;
+    if (op == "-") return operand1 - operand2;
+    if (op == "*") return operand1 * operand2;
+    if (op == "/") {
+        if (operand2 == 0) throw invalid_argument("Division par zéro !");
+        return operand1 / operand2;
+    }
+    throw invalid_argument("Opérateur invalide !");
+}
+
+// Fonction pour évaluer une expression postfixée
+int evaluatePostfix(const string& expression) {
+    stack<int> sch;
+    stringstream ss(expression);
+    string token;
+
+    // Parcourir les tokens de l'expression
+    while (ss >> token) {
+        if (isdigit(token[0]) || (token[0] == '-' && token.size() > 1)) {
+            // Si le token est un nombre, on le pousse dans la pile
+            sch.push(stoi(token));
+        } else if (isOperator(token)) {
+            // Si le token est un opérateur
+            if (sch.size() < 2) throw invalid_argument("Expression postfixée invalide !");
+            
+            int operand2 = sch.top(); sch.pop();
+            int operand1 = sch.top(); sch.pop();
+
+            // Effectuer l'opération et pousser le résultat
+            int result = evaluateOperation(operand1, operand2, token);
+            sch.push(result);
+        } else {
+            throw invalid_argument("Token invalide !");
+        }
+    }
+
+    // Le résultat doit être le seul élément restant dans la pile
+    if (sch.size() != 1) throw invalid_argument("Expression postfixée invalide !");
+    return sch.top();
+}
+
+
+
+
+
+
 //Réverser une chaîne
 void reverser(string &mot){
     stack<char> sch;
@@ -81,6 +137,15 @@ int main(){
     string mot3 = "stack";
     reverser(mot3);
     cout<<"reverser :"<<mot3<<endl;
+
+    //Ex4
+    string expression = "5 1 2 + 4 * + 3 -";
+    try {
+        int result = evaluatePostfix(expression);
+        cout << "Résultat : " << result << endl;
+    } catch (const exception& e) {
+        cerr << "Erreur : " << e.what() << endl;
+    }
     
     return 0;
 }
