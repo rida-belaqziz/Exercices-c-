@@ -61,7 +61,7 @@ bool parenthese(const string &mot) {
     }
     return sch.empty();
 }
-//cout<< v2[i] <<" ";
+
 int main(){
     //ex1
     stack<int> s1;
