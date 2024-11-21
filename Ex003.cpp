@@ -33,6 +33,19 @@ void renverser(list<int> &liste){
   
 } 
 
+
+//Ex4: Créer une file d'attente circulaire
+    void FileAttenteCirculaire(list<int>& mylist) {
+    if (!mylist.empty()) {
+        // Retirer le premier élément
+        int first = mylist.front();
+        mylist.pop_front();
+
+        // Ajouter cet élément à la fin
+        mylist.push_back(first);
+    }
+}
+
 int main(){
     //Ex1
     list<int> liste1 = {10,20,30,40,50};
@@ -66,6 +79,7 @@ int main(){
         cout << elt << " ";
     }
 
+    
 
 
 cout<<""<<endl;
@@ -115,6 +129,25 @@ cout<<""<<endl;
     cout<<endl;
 
     cout<<""<<endl;
+
+
+    //EX4
+    list<int> mylist = {1, 2, 3};
+
+    cout << "Avant : ";
+    for (int x : mylist) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    // Effectuer un tour de file d'attente circulaire
+    FileAttenteCirculaire(mylist);
+
+    cout << "Après un tour : ";
+    for (int x : mylist) {
+        cout << x << " ";
+    }
+    cout << endl;
 
 
     return 0;
