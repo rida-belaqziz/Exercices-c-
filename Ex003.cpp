@@ -27,6 +27,11 @@ Exemple : {1, 2, 3} devient {2, 3, 1} après un tour.
 
 using namespace std;
 
+//Ex2
+void renverser(list<int> &liste){
+    liste.reverse();
+  
+} 
 
 int main(){
     //Ex1
@@ -46,7 +51,20 @@ int main(){
     }
     cout << endl;
 
-
+    //Ex2
+    list<int> liste2 = {10,20,30,40,50,60,70,80};
+    // Affichage
+    cout << "Afficher liste2 : ";
+    for (int elt : liste2) {
+        cout << elt << " ";
+    }
+    cout << endl;
+    renverser(liste2);
+    // Affichage
+    cout << "Afficher liste2 apres renverser: ";
+    for (int elt : liste2) {
+        cout << elt << " ";
+    }
     return 0;
 }
 
