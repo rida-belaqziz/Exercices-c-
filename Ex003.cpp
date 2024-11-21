@@ -65,6 +65,58 @@ int main(){
     for (int elt : liste2) {
         cout << elt << " ";
     }
+
+
+
+cout<<""<<endl;
+cout<<""<<endl;
+    cout << ":::::::::::::::::EX3 "<<endl;
+    //Fusionner deux listes
+    list<int> l1 = {8,7,6,400,63,54,41,90,2,4,5,4,38,24,123,4,6};
+    list<int> l2 = {0,2,1,83,7,6,5,64,5,3,335,23,12,50,5,4,3};
+
+    //affichage liste
+    for(auto it : l1){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    cout<<""<<endl;
+    for(auto it : l2){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    cout<<""<<endl;
+
+    //afficahge apres tri
+    l1.sort();
+    l2.sort();
+    
+    for(auto it : l1){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    cout<<""<<endl;
+    for(auto it : l2){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    cout<<""<<endl;
+    //Fusionner 
+    //l1.splice(l1.end(), l2); //Fusionner deux listes sans les trier
+    cout<<"Fusionner :"<<endl;
+    l1.merge(l2);
+    for(auto it : l1){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+
+    cout<<""<<endl;
+
+
     return 0;
 }
 
